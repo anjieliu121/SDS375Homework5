@@ -17,9 +17,21 @@ y <- as(y0, "sparse_numeric")
 
 ## Compare addition
 microbenchmark(x + y, x0 + y0)
+# Unit: microseconds
+# expr      min        lq      mean    median        uq      max neval
+# x + y   51.250   53.0335  258.9913  113.9185  139.5845 15216.08   100
+# x0 + y0 2982.258 3171.8625 5424.0720 3293.1815 8494.9745 31510.35   100
 
 ## Compare subtraction
 microbenchmark(x - y, x0 - y0)
+# Unit: microseconds
+# expr      min       lq      mean   median       uq      max neval
+# x - y   52.152   53.546  270.9341  118.326  146.206 15298.82   100
+# x0 - y0 3066.267 3159.911 5272.9587 3403.226 8427.468 11946.17   100
 
 ## Compare multiplication
 microbenchmark(x * y, x0 * y0)
+# Unit: microseconds
+# expr      min       lq     mean   median        uq       max neval
+# x * y   50.758   51.906  190.730  110.700  138.8875  7960.109   100
+# x0 * y0 2921.004 3122.601 5446.021 3348.347 8241.4305 40034.245   100

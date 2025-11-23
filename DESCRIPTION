@@ -1,0 +1,23 @@
+Package: sparseNumeric
+Title: Sparse Numeric Vectors with S4 Methods
+Version: 0.0.1
+Authors@R: 
+    person("Anjie", "Liu", email = "anjie.liu@utexas.edu",
+           role = c("aut", "cre"))
+Description: 
+    Provides an S4 class 'sparse_numeric' for representing numeric vectors
+    in sparse form, along with methods for arithmetic, cross product,
+    mean, Euclidean norm, and standardization, plus basic plotting and
+    coercion to and from base R numeric vectors.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+Depends: 
+    R (>= 4.1.0)
+Imports:
+    methods,
+    graphics
+Suggests:
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3

@@ -1,0 +1,135 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# sparseNumeric
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of sparseNumeric is to provide an S4 representation of sparse numeric vectors and a suite of arithmetic operations. A sparse vector stores only its non-zero entries and their positions, allowing efficient computation when most entries are zero.
+
+## Installation
+
+You can install the development version of sparseNumeric from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("pak")
+pak::pak("anjieliu121/SDS375Homework5")
+```
+
+## Examples
+
+### Initialization
+
+Initialize a sparse vector directly
+
+```{r example}
+library(sparseNumeric)
+v1 <- new("sparse_numeric",
+value = c(3, 5),
+pos = c(2L, 5L),
+length = 6L)
+v1
+```
+
+Convert a dense vector to a sparse vector
+
+```{r}
+dense <- c(0, 4, 0, 0, 7)
+v2 <- as(dense, "sparse_numeric")
+
+v2
+```
+
+Convert a sparse vector back to a dense vector
+
+```{r}
+as(v2, "numeric")
+```
+
+Display (show) a sparse vector
+
+```{r}
+v2
+```
+
+### Arithmetic Operations
+
+Addition (generic + and sparse_add)
+
+```{r}
+x <- as(c(0, 1, 0, 2, 0), "sparse_numeric")
+y <- as(c(3, 0, 0, 1, 4), "sparse_numeric")
+
+x + y
+sparse_add(x, y)
+```
+
+Subtraction (generic - and sparse_sub)
+
+```{r}
+x - y
+sparse_sub(x, y)
+```
+
+Multiplication (generic * and sparse_mult)
+
+```{r}
+x * y
+sparse_mult(x, y)
+```
+
+### Basic Operation
+
+Count number of non-zero entries
+
+```{r}
+count_sparse(x)
+```
+
+### Advance Operations
+
+Mean of a sparse vector
+
+```{r}
+mean(x)
+```
+
+Cross product
+
+```{r}
+sparse_crossprod(x, y)
+```
+
+Euclidean Norm
+
+```{r}
+norm(x)
+```
+
+Standardize a sparse vector
+
+```{r}
+standardize(x)
+```
+
+### Graphics
+
+Plot overlapping non-zero elements of two sparse vectors
+
+
+```{r, fig.alt = "Plot of overlapping non-zero elements of two sparse vectors"}
+plot(x, y)
+```
